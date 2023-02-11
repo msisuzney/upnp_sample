@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    api 'org.seamless:seamless-util:1.1.2'
+    api 'org.seamless:seamless-http:1.1.2'
+    api 'org.seamless:seamless-xml:1.1.2'
+    api 'org.eclipse.jetty:jetty-server:8.1.22.v20160922'
+    api 'org.eclipse.jetty:jetty-servlet:8.1.22.v20160922'
+    api 'org.eclipse.jetty:jetty-client:8.1.22.v20160922'
+//    implementation 'com.google.android:android:4.1.1.4'
+    compileOnly 'javax.enterprise:cdi-api:1.2'
+    compileOnly 'net.sf.kxml:kxml2:2.3.0'
+    // https://mvnrepository.com/artifact/com.sun.net.httpserver/http
+    api group: 'com.sun.net.httpserver', name: 'http', version: '20070405'
+    api 'org.slf4j:slf4j-api:1.7.25'
+}
